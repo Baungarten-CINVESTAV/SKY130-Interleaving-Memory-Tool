@@ -94,6 +94,7 @@ These parameters are essential in ensuring that the memory configuration adheres
 Once the Python script is run, a summary of the memory setup will be shown. The tool contains a "designs" folder for storing generated memory structures. This folder follows a specific naming convention and houses essential files and sub-folders for compatibility with OpenLane. The tool also provides schematic visuals of the memory in both PNG and SVG formats.
 ![image](https://github.com/Baungarten-CINVESTAV/SKY130-Interleaving-Memory-Tool/assets/101527680/c941bb35-bded-4558-99a5-8f49db7b072d)
 
+
 **Usage Examples**
 
 - **Grid Arrange**: Here, a grid layout is used with a memory size of 8×4096. After choosing the memory, set the parameters accordingly:
@@ -102,12 +103,14 @@ Once the Python script is run, a summary of the memory setup will be shown. The 
   ```
 
 ![image](https://github.com/Baungarten-CINVESTAV/SKY130-Interleaving-Memory-Tool/assets/101527680/b16665b4-2fb1-4e36-a176-91da443314f8)
+
 Visual representation of the GDSII file corresponding to the SRAM\_8\_4096\_0\_grid  memory.
 - **Row Arrange**: For a memory size of 32×1024, use:
   ```
   python3 imem_generator.py 1 32 1024 r
   ```
 ![image](https://github.com/Baungarten-CINVESTAV/SKY130-Interleaving-Memory-Tool/assets/101527680/b9baf75a-d846-4c37-97a0-9f7875613568)
+
 Visual representation of the GDSII file corresponding to the SRAM\_32\_1024\_1\_row  memory.
 
 - **Custom Arrange**: For a custom arrangement of 64×2048 using memory type 2, in a rectangle with 4 columns and 2 rows:
