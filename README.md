@@ -34,7 +34,7 @@ Before you begin:
 To start using the Interleaving Memory Tool:
 1. Download the required files from its GitHub repository:
    ```
-   git clone [GitHub Repository URL]
+   git clone git@github.com:Baungarten-CINVESTAV/SKY130-Interleaving-Memory-Tool.git
    ```
 2. Generate the desired memory by executing the `imem_generator` python script. Example command:
    ```
@@ -42,11 +42,57 @@ To start using the Interleaving Memory Tool:
    python3 imem_generator.py [mt] [wn] [ad] [p] [op1] [op2]
    ```
 
-Detailed parameter explanations can be found in the provided documentation.
+The given text provides an in-depth description of several parameters related to the configuration of memory structures in the SKY130 technology node. To facilitate clarity and easier understanding, here's a concise summary:
+
+1. **mt (Memory Type)**
+    - Integer data type.
+    - Values: 
+        - 0: Memory size = 8x1024
+        - 1: Memory size = 32x256
+        - 2: Memory size = 32x512
+    - Determines the foundation for the memory architecture.
+
+2. **wn (Word Width)**
+    - Integer data type.
+    - Constraints:
+        - mt = 0: wn is a multiple of 8.
+        - mt = 1 or 2: wn is a multiple of 32.
+
+3. **ad (Address Count)**
+    - Must always be a multiple of 2.
+    - Constraints:
+        - mt = 0: Minimum ad = 2048
+        - mt = 1: Minimum ad = 512
+        - mt = 2: Minimum ad = 1024
+
+4. **p (Placement)**
+    - Determines the arrangement of the memory.
+    - Values:
+        - g: Grid formation
+        - r: Row-wise arrangement
+        - c: Columnar configuration
+        - ct: Custom arrangement
+        - a: Automatic arrangement by system
+    - Conditions: wn should be either 8 or 32.
+
+5. **op1 (Option 1)**
+    - Integer data type.
+    - Use:
+        - p = ct: Number of columns.
+        - p = a: x_space (space on x-axis in micrometers).
+
+6. **op2 (Option 2)**
+    - Integer data type.
+    - Use:
+        - p = ct: Number of rows (maximum value of 10).
+        - p = a: y_space (space on y-axis in micrometers).
+
+These parameters are essential in ensuring that the memory configuration adheres to the design requirements and maintains its functional efficiency and structural integrity.
 
 **Output Structure**
 
 Once the Python script is run, a summary of the memory setup will be shown. The tool contains a "designs" folder for storing generated memory structures. This folder follows a specific naming convention and houses essential files and sub-folders for compatibility with OpenLane. The tool also provides schematic visuals of the memory in both PNG and SVG formats.
+![image](https://github.com/Baungarten-CINVESTAV/SKY130-Interleaving-Memory-Tool/assets/101527680/c941bb35-bded-4558-99a5-8f49db7b072d)
 
 **Usage Examples**
 
@@ -55,16 +101,21 @@ Once the Python script is run, a summary of the memory setup will be shown. The 
   python3 imem_generator.py 0 8 16384 g
   ```
 
+![image](https://github.com/Baungarten-CINVESTAV/SKY130-Interleaving-Memory-Tool/assets/101527680/b16665b4-2fb1-4e36-a176-91da443314f8)
+Visual representation of the GDSII file corresponding to the SRAM\_8\_4096\_0\_grid  memory.
 - **Row Arrange**: For a memory size of 32×1024, use:
   ```
   python3 imem_generator.py 1 32 1024 r
   ```
+![image](https://github.com/Baungarten-CINVESTAV/SKY130-Interleaving-Memory-Tool/assets/101527680/b9baf75a-d846-4c37-97a0-9f7875613568)
+Visual representation of the GDSII file corresponding to the SRAM\_32\_1024\_1\_row  memory.
 
 - **Custom Arrange**: For a custom arrangement of 64×2048 using memory type 2, in a rectangle with 4 columns and 2 rows:
   ```
   python3 imem_generator.py 2 64 2048 ct 4 2
   ```
+![image](https://github.com/Baungarten-CINVESTAV/SKY130-Interleaving-Memory-Tool/assets/101527680/e72ea0a5-4866-4cb4-ac46-a35f31174c0e)
+Visual representation of the GDSII file corresponding to the SRAM\_64\_2048\_2\_custom memory with 4 columns and 2 rows arrangement.
 
-The visual outputs for these configurations can be found in the provided figures.
 
 
