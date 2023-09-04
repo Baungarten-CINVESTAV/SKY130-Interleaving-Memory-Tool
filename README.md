@@ -6,8 +6,10 @@ In response to this challenge, we introduce an innovative system that automates 
 With our system, designers can effortlessly define their preferred memory dimensions, word length, layout, among other vital parameters. The system then autonomously crafts several memory arrays aligning with the set criteria. Additionally, it supplies the necessary files for OpenLane, ensuring easy incorporation of these memories from RTL to GDSII stages.
 
 Our system's primary strength is its capacity to simplify the making of tailor-made memories by automating interleaving and granting design layout flexibility. This dramatically cuts down on design duration and labor, allowing designers to adeptly generate memories with distinct attributes, all the while respecting SKY130 PDK constraints. Consequently, our system stands out as an indispensable asset for memory design within the SKY130 PDK framework, paving the way for more streamlined and optimized semiconductor designs.
-![image](https://github.com/Baungarten-CINVESTAV/SKY130-Interleaving-Memory-Tool/assets/101527680/ee12ce04-a658-43a2-a06d-7f09dbd0f79a)
-![image](https://github.com/Baungarten-CINVESTAV/SKY130-Interleaving-Memory-Tool/assets/101527680/a5a59cbe-d50a-44d2-91b4-c9bc5379ce4c)
+<p align="center">
+<img src="https://github.com/Baungarten-CINVESTAV/SKY130-Interleaving-Memory-Tool/assets/101527680/ee12ce04-a658-43a2-a06d-7f09dbd0f79a" width=60% height=60% />
+<img src="https://github.com/Baungarten-CINVESTAV/SKY130-Interleaving-Memory-Tool/assets/101527680/a5a59cbe-d50a-44d2-91b4-c9bc5379ce4c" width=60% height=60% />
+</p>
 
 ## Interleaving-Memory-Tool
 The Interleaving Memory Tool has been developed to simplify the memory design process when working with the SKY130 design kit. While the SKY130 kit offers three pre-defined memory sizes, sometimes projects need different sizes. This tool fills that gap.
@@ -19,8 +21,9 @@ The tool's user-friendliness is clear: users simply input the base memory type (
 Additionally, the tool collaborates with OpenLane configuration files. Using the Python scripts, it adjusts baseline configurations based on memory type and size, allowing for a more fluid integration process and reduced design time.
 
 A visual workflow, illustrating the process of creating memory up to generating the GDSII file of the memories, has been provided for clarity. The workflow takes the user from selecting the memory type, determining data and address size, choosing the arrangement, importing files into OpenLane, and finally running the OpenLane flow.
-
-![image](https://github.com/Baungarten-CINVESTAV/SKY130-Interleaving-Memory-Tool/assets/101527680/d5fd7f69-006e-4bcd-8daa-e451cc19dc5b)
+<p align="center">
+<img src="https://github.com/Baungarten-CINVESTAV/SKY130-Interleaving-Memory-Tool/assets/101527680/d5fd7f69-006e-4bcd-8daa-e451cc19dc5b" width=30% height=30% />
+</p>
 
 
 Workflow Diagram for Memory Configuration – This illustration details the step-by-step process from selecting the memory type to executing the OpenLane flow, leading to the generation of the GDSII file of the memories.
@@ -92,7 +95,10 @@ These parameters are essential in ensuring that the memory configuration adheres
 **Output Structure**
 
 Once the Python script is run, a summary of the memory setup will be shown. The tool contains a "designs" folder for storing generated memory structures. This folder follows a specific naming convention and houses essential files and sub-folders for compatibility with OpenLane. The tool also provides schematic visuals of the memory in both PNG and SVG formats.
-![image](https://github.com/Baungarten-CINVESTAV/SKY130-Interleaving-Memory-Tool/assets/101527680/c941bb35-bded-4558-99a5-8f49db7b072d)
+
+<p align="center">
+<img src="https://github.com/Baungarten-CINVESTAV/SKY130-Interleaving-Memory-Tool/assets/101527680/c941bb35-bded-4558-99a5-8f49db7b072d" width=60% height=60% />
+</p>
 
 
 **Usage Examples**
@@ -101,15 +107,18 @@ Once the Python script is run, a summary of the memory setup will be shown. The 
   ```
   python3 imem_generator.py 0 8 16384 g
   ```
-
-![image](https://github.com/Baungarten-CINVESTAV/SKY130-Interleaving-Memory-Tool/assets/101527680/b16665b4-2fb1-4e36-a176-91da443314f8)
+<p align="center">
+<img src="https://github.com/Baungarten-CINVESTAV/SKY130-Interleaving-Memory-Tool/assets/101527680/b16665b4-2fb1-4e36-a176-91da443314f8" width=30% height=30% />
+</p>
 
 Visual representation of the GDSII file corresponding to the SRAM\_8\_4096\_0\_grid  memory.
 - **Row Arrange**: For a memory size of 32×1024, use:
   ```
   python3 imem_generator.py 1 32 1024 r
   ```
-![image](https://github.com/Baungarten-CINVESTAV/SKY130-Interleaving-Memory-Tool/assets/101527680/b9baf75a-d846-4c37-97a0-9f7875613568)
+<p align="center">
+<img src="https://github.com/Baungarten-CINVESTAV/SKY130-Interleaving-Memory-Tool/assets/101527680/b9baf75a-d846-4c37-97a0-9f7875613568" width=60% height=60% />
+</p>
 
 Visual representation of the GDSII file corresponding to the SRAM\_32\_1024\_1\_row  memory.
 
@@ -117,7 +126,10 @@ Visual representation of the GDSII file corresponding to the SRAM\_32\_1024\_1\_
   ```
   python3 imem_generator.py 2 64 2048 ct 4 2
   ```
-![image](https://github.com/Baungarten-CINVESTAV/SKY130-Interleaving-Memory-Tool/assets/101527680/e72ea0a5-4866-4cb4-ac46-a35f31174c0e)
+<p align="center">
+<img src="https://github.com/Baungarten-CINVESTAV/SKY130-Interleaving-Memory-Tool/assets/101527680/e72ea0a5-4866-4cb4-ac46-a35f31174c0e" width=60% height=60% />
+</p>
+
 Visual representation of the GDSII file corresponding to the SRAM\_64\_2048\_2\_custom memory with 4 columns and 2 rows arrangement.
 
 
